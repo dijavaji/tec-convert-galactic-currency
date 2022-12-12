@@ -89,6 +89,18 @@ public class ConvertCurrencyTest {
 	}
 	
 	@Test
+	public void testValidSucession_D() throws Exception {
+		
+		try {
+			GalacticCurrencyLog.getLog().error("testValidSucession.");
+			ConvertCurrencyUtil.getInstance().convertCredit("DDI");		
+			} catch (Exception e) {
+			GalacticCurrencyLog.getLog().error("testValidSucession.",e);
+			assertTrue("Error in testValidSucession.",Boolean.TRUE);
+		}
+	}
+	
+	@Test
 	public void testSmallerValuesSubtracted_I() throws Exception {
 
 		// Subtract

@@ -1,7 +1,10 @@
 package ec.com.technoloqie.galactic.currency.commons.utils;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 import java.util.regex.Pattern;
@@ -51,7 +54,7 @@ public final class ConvertCurrencyUtil {
 		if (symbolStack.size() == 0) {
 			return 00;
 		}else if (symbolStack.size() == 1) {	// input have only one symbol
-			return convertUnitsToCredits(currencyMap.get(symbolStack.pop()));
+			return currencyMap.get(symbolStack.pop());
 		}else{
 		
 		// input have more than one symbol
@@ -90,7 +93,7 @@ public final class ConvertCurrencyUtil {
 			}
 		}
 		
-		return convertUnitsToCredits(totalUnits);
+		return totalUnits;
 	}
 	
 	/**
@@ -98,23 +101,23 @@ public final class ConvertCurrencyUtil {
 	 * @param numberOfUnits
 	 * @return
 	 */
-	private double convertUnitsToCredits(int numberOfUnits) {
+	private double convertUnitsToCredits(String numberOfUnits) {
 
 		// Credit for iron
-		if (CurrencyConstants.currentMetalType == CurrencyConstants.METAL_IRON) {
-			return numberOfUnits * CurrencyConstants.IRON_PER_UNIT;
+		if (StringUtils.uncapitalize(numberOfUnits).equals(CurrencyConstants.METAL_IRON)) {
+			return CurrencyConstants.IRON_PER_UNIT;
 		}
 		// Credit for Silver
-		else if (CurrencyConstants.currentMetalType == CurrencyConstants.METAL_SILVER) {
-			return numberOfUnits * CurrencyConstants.SILVER_PER_UNIT;
+		else if (StringUtils.uncapitalize(numberOfUnits).equals(CurrencyConstants.METAL_SILVER)) {
+			return CurrencyConstants.SILVER_PER_UNIT;
 		}
 		// Credit for Gold
-		else if (CurrencyConstants.currentMetalType == CurrencyConstants.METAL_GOLD) {
-			return numberOfUnits * CurrencyConstants.GOLD_PER_UNIT;
+		else if (StringUtils.uncapitalize(numberOfUnits).equals(CurrencyConstants.METAL_GOLD)) {
+			return CurrencyConstants.GOLD_PER_UNIT;
 		}
 		// just checking credits
 		else {
-			return numberOfUnits;
+			return 1;
 		}
 	}
 	
@@ -181,7 +184,25 @@ public final class ConvertCurrencyUtil {
 	}
 	
 	public Double convertGalaxyMoneytoCredits(String input){
-		return null;
+		String[] unitMoneylst = StringUtils.tokenizeToStringArray(input, " ");
+        // Intergalatic words (plus metal), ie glob prok Silver or tegj glob glob
+        //String lastWords = unitMoneylst[unitMoneylst.length - 1];
+        String romanNumeral ="";
+
+        double creditResult =0;
+        //Stack<String> galaxyMoneylStack = new Stack<String>();
+        List<String> galaxyMoneyls = new ArrayList<>();
+        Collections.addAll(galaxyMoneyls, unitMoneylst);
+        String lastWords = galaxyMoneyls.remove(unitMoneylst.length-1);
+        String galaxyMoney = "";
+        for(String money : galaxyMoneyls){
+        	galaxyMoney += money+" ";
+        }
+        creditResult =  convertGalaxyMoneytoUnit(galaxyMoney)*convertUnitsToCredits(lastWords);
+		
+		//String lastWords = galaxyMoneylStack.pop();
+		
+		return creditResult;
 	}
 	
 	 static Map<String, String> howMuchMoney = new HashMap<String, String>();

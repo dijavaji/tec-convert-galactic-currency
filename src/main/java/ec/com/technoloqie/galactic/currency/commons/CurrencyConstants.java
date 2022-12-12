@@ -12,10 +12,10 @@ public interface CurrencyConstants {
 	public static final char ROMAN_M = 'M';
 	
 	// Metal Types
-	static final int NONE = 0;
-	static final int METAL_IRON = 1;
-	static final int METAL_SILVER = 2;
-	static final int METAL_GOLD = 3;
+	static final String NONE = "";
+	static final String METAL_IRON = "iron";
+	static final String METAL_SILVER = "silver";
+	static final String METAL_GOLD = "gold";
 	
 	// Exchnage rate
 	static final double IRON_PER_UNIT = 195.5;

@@ -39,13 +39,13 @@ public class ConvertCurrencyTest {
 		try {
 			//ConvertCurrencyUtil.getInstance().convertCredit("");
 			GalacticCurrencyLog.getLog().info("testConvertRomanNumbers.");
-			assertEquals( 1.0, ConvertCurrencyUtil.getInstance().convertCredit("I"),1);
-			assertEquals(5.0, ConvertCurrencyUtil.getInstance().convertCredit("V"),5);
-			assertEquals(10.0, ConvertCurrencyUtil.getInstance().convertCredit("X"),10);
-			assertEquals(50.0, ConvertCurrencyUtil.getInstance().convertCredit("L"),50);
-			assertEquals(100.0, ConvertCurrencyUtil.getInstance().convertCredit("C"),100);
-			assertEquals(500.0, ConvertCurrencyUtil.getInstance().convertCredit("D"),500);
-			assertEquals(1000.0, ConvertCurrencyUtil.getInstance().convertCredit("M"),1000);
+			assertEquals( 1.0, ConvertCurrencyUtil.getInstance().convertCredit("I"),0);
+			assertEquals(5.0, ConvertCurrencyUtil.getInstance().convertCredit("V"),0);
+			assertEquals(10.0, ConvertCurrencyUtil.getInstance().convertCredit("X"),0);
+			assertEquals(50.0, ConvertCurrencyUtil.getInstance().convertCredit("L"),0);
+			assertEquals(100.0, ConvertCurrencyUtil.getInstance().convertCredit("C"),0);
+			assertEquals(500.0, ConvertCurrencyUtil.getInstance().convertCredit("D"),0);
+			assertEquals(1000.0, ConvertCurrencyUtil.getInstance().convertCredit("M"),0);
 
 			
 		} catch (Exception e) {
@@ -58,7 +58,7 @@ public class ConvertCurrencyTest {
 	public void testNumberNull(){
 		try {
 			GalacticCurrencyLog.getLog().info("testNumberNull.");
-			ConvertCurrencyUtil.getInstance().convertCredit(null);
+			assertEquals(null , ConvertCurrencyUtil.getInstance().convertCredit(null));
 		} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("testNumberNull.");
 			assertTrue("number is null.",Boolean.TRUE);
@@ -74,6 +74,14 @@ public class ConvertCurrencyTest {
 			GalacticCurrencyLog.getLog().error("testConvertRomanNumbers.");
 			fail("Error in testConvertRomanNumbers.");
 		}
+	}
+	
+	@Test
+	public void testconvertCredit() throws Exception {
+
+		// Subtract
+		assertEquals(4.0, ConvertCurrencyUtil.getInstance().convertCredit("silver"), 0.0);
+
 	}
 	
 	@Test

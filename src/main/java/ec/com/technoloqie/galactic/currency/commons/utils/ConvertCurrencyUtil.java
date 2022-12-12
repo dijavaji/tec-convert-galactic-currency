@@ -1,10 +1,15 @@
 package ec.com.technoloqie.galactic.currency.commons.utils;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 import java.util.regex.Pattern;
 
+import org.springframework.util.StringUtils;
+
 import ec.com.technoloqie.galactic.currency.commons.CurrencyConstants;
+import ec.com.technoloqie.galactic.currency.commons.CurrencyUnitEnum;
 
 public final class ConvertCurrencyUtil {
 	
@@ -149,4 +154,81 @@ public final class ConvertCurrencyUtil {
 
 		return errorMessage;
 	}
+	
+	public String parseUnitRoman(String input) {
+		String[] unitMoneylst = StringUtils.tokenizeToStringArray(input, " ");
+        String romanResult = "";
+        if(unitMoneylst == null) return null;
+        for (String unitMoney : unitMoneylst) {
+        	if(unitMoney.equals(CurrencyUnitEnum.glob.getLabel())){
+        		romanResult += CurrencyUnitEnum.glob.getRomanProve();
+        	}else if(unitMoney.equals(CurrencyUnitEnum.prok.getLabel())){
+        		romanResult += CurrencyUnitEnum.prok.getRomanProve();
+        	}else if(unitMoney.equals(CurrencyUnitEnum.pish.getLabel())){
+        		romanResult += CurrencyUnitEnum.pish.getRomanProve();
+        	}else if(unitMoney.equals(CurrencyUnitEnum.tegj.getLabel())){
+        		romanResult += CurrencyUnitEnum.tegj.getRomanProve();
+        	}
+        }
+		
+		return romanResult;
+	}
+	
+	public Double convertGalaxyMoneytoUnit(String input){
+		return null;
+	}
+	
+	public Double convertGalaxyMoneytoCredits(String input){
+		return null;
+	}
+	
+	 static Map<String, String> howMuchMoney = new HashMap<String, String>();
+	 void translate(String s, String separator){
+
+        double sum = 0;
+
+         DecimalFormat df2  = new DecimalFormat("");
+
+        // Splits the string based on whether we are asking how much or how many Credits
+        String[] output = s.split(Pattern.quote(separator));
+        // Intergalatic words (plus metal), ie glob prok Silver or tegj glob glob
+        String individualWords = output[1];
+        String[] outputWords = individualWords.split(" ");
+        String romanNumeral ="";
+
+        double value =0;
+        for (String ow: outputWords){
+
+            if (!ow.equals("")) {
+
+
+                if (!ow.equals("Silver") && (!ow.equals("Gold") && (!ow.equals("Iron")))) {
+
+                    // Gets Roman numeral for the Galatic words ( sentence doesn't have Credits)
+
+                    romanNumeral += howMuchMoney.get(ow);
+
+                }
+                else {
+
+                    // Gets Roman numeral before the metal
+
+                    value= Double.parseDouble(howMuchMoney.get(ow));
+                  //  System.out.println("with metals " + romanNumeral);
+                    // Multiplies the number of units of the metal by the value of the metal
+                    //sum = value * romanToInt(romanNumeral);
+                    // Remove the last space and ? and also show without decimals
+                    System.out.println(output[1].trim().replaceAll(" \\?", "") +" is " + df2.format(sum).toString().replaceAll(",", "") + " Credits");
+                }
+            }
+
+        }
+        // Only prints out if it is not How many credits (since that has already been printed out)
+
+         if (!output[1].contains("Silver") && !output[1].contains("Gold") && !output[1].contains("Iron"))
+        System.out.println(output[1].trim().replaceAll(" \\?", "") + " is " + convertCredit(romanNumeral));
+
+    }
+
+	
 }

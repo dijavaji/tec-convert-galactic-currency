@@ -53,13 +53,13 @@ public class ConvertGalacticCurrencyTest {
 	}
 	
 	@Test
-	public void testConvertUnitRoman(){
+	public void testConvertGalaxyMoneytoUnit(){
 		try {
-			GalacticCurrencyLog.getLog().error("testConvertUnitRoman.");
-			assertEquals( 1.0 , ConvertCurrencyUtil.getInstance().convertCredit("XXXIX"),39);		
+			GalacticCurrencyLog.getLog().info("testConvertGalaxyMoneytoUnit.");
+			assertEquals( 42.0 , ConvertCurrencyUtil.getInstance().convertGalaxyMoneytoUnit("pish tegj glob glob"),0.0);		
 			} catch (Exception e) {
-			GalacticCurrencyLog.getLog().error("testConvertUnitRoman.");
-			fail("Error in testConvertUnitRoman.");
+			GalacticCurrencyLog.getLog().error("testConvertGalaxyMoneytoUnit.");
+			fail("Error in testConvertGalaxyMoneytoUnit.");
 		}
 	}
 	

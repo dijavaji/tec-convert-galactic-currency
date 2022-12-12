@@ -174,8 +174,10 @@ public final class ConvertCurrencyUtil {
 		return romanResult;
 	}
 	
-	public Double convertGalaxyMoneytoUnit(String input){
-		return null;
+	public double convertGalaxyMoneytoUnit(String input){
+		String unitRoman = parseUnitRoman(input);
+		Double result = convertCredit(unitRoman);
+		return result;
 	}
 	
 	public Double convertGalaxyMoneytoCredits(String input){

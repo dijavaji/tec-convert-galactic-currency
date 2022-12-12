@@ -11,6 +11,11 @@ import ec.com.technoloqie.galactic.currency.commons.exception.GalacticCurrencyEx
 import ec.com.technoloqie.galactic.currency.commons.log.GalacticCurrencyLog;
 import ec.com.technoloqie.galactic.currency.commons.utils.ConvertCurrencyUtil;
 
+/**
+ * Utilizada para realizar test unitarios sobre la conversi&#243;n entre unidades intergal&#225;cticas y n&#250;meros romanos.
+ * @author dvasquez
+ *
+ */
 public class ConvertCurrencyTest {
 	
 	@Before
@@ -34,7 +39,7 @@ public class ConvertCurrencyTest {
 		try {
 			//ConvertCurrencyUtil.getInstance().convertCredit("");
 			GalacticCurrencyLog.getLog().info("testConvertRomanNumbers.");
-			assertEquals( 1.0, ConvertCurrencyUtil.getInstance().convertCredit("I"),5);
+			assertEquals( 1.0, ConvertCurrencyUtil.getInstance().convertCredit("I"),1);
 			assertEquals(5.0, ConvertCurrencyUtil.getInstance().convertCredit("V"),5);
 			assertEquals(10.0, ConvertCurrencyUtil.getInstance().convertCredit("X"),10);
 			assertEquals(50.0, ConvertCurrencyUtil.getInstance().convertCredit("L"),50);
@@ -63,8 +68,8 @@ public class ConvertCurrencyTest {
 	@Test
 	public void testConvert(){
 		try {
-			//ConvertCurrencyUtil.getInstance().convertCredit("");
-			//GalacticCurrencyLog.getLog().error("testConvertRomanNumbers.");		
+			GalacticCurrencyLog.getLog().error("testConvert.");
+			assertEquals( 39.0, ConvertCurrencyUtil.getInstance().convertCredit("XXXIX"),39);		
 			} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("testConvertRomanNumbers.");
 			fail("Error in testConvertRomanNumbers.");

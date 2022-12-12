@@ -77,11 +77,15 @@ public class ConvertCurrencyTest {
 	}
 	
 	@Test
-	public void testconvertCredit() throws Exception {
-
-		// Subtract
-		assertEquals(4.0, ConvertCurrencyUtil.getInstance().convertCredit("silver"), 0.0);
-
+	public void testValidSucession() throws Exception {
+		
+		try {
+			GalacticCurrencyLog.getLog().error("testValidSucession.");
+			assertEquals( 39.0, ConvertCurrencyUtil.getInstance().convertCredit("XXXXI"),0.0);		
+			} catch (Exception e) {
+			GalacticCurrencyLog.getLog().error("testValidSucession.",e);
+			assertTrue("Error in testValidSucession.",Boolean.TRUE);
+		}
 	}
 	
 	@Test

@@ -13,6 +13,8 @@ import org.springframework.util.StringUtils;
 
 import ec.com.technoloqie.galactic.currency.commons.CurrencyConstants;
 import ec.com.technoloqie.galactic.currency.commons.CurrencyUnitEnum;
+import ec.com.technoloqie.galactic.currency.commons.exception.GalacticCurrencyException;
+import ec.com.technoloqie.galactic.currency.commons.log.GalacticCurrencyLog;
 
 public final class ConvertCurrencyUtil {
 	
@@ -40,8 +42,18 @@ public final class ConvertCurrencyUtil {
 	}
 	
 	
-	public double convertCredit(String input) {
+	public double convertCredit(String input) throws GalacticCurrencyException{
 		int totalUnits = 0;
+		if(StringUtils.isEmpty(input)){
+			GalacticCurrencyLog.getLog().error("Error when converting roman number.");
+			throw new GalacticCurrencyException("Error when converting roman number");
+		}
+		String inputRepet = checkRepeatedSuccession(input);
+		if(!StringUtils.isEmpty(inputRepet)){
+			GalacticCurrencyLog.getLog().error(inputRepet);
+			throw new GalacticCurrencyException(inputRepet);
+		}
+		
 		Stack<Character> symbolStack = new Stack<Character>();
 		
 		for (Character character : input.toCharArray()) {
@@ -60,8 +72,7 @@ public final class ConvertCurrencyUtil {
 		// input have more than one symbol
 		while (!symbolStack.isEmpty()) {
 		
-			// pop end element
-			currentSymbol = symbolStack.pop();
+			currentSymbol = symbolStack.pop();	// pop end element
 		
 			// peek next symbol.
 			// Important Note 'H' is invalid

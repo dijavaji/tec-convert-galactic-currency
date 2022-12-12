@@ -75,5 +75,37 @@ public class ConvertCurrencyTest {
 			fail("Error in testConvertRomanNumbers.");
 		}
 	}
+	
+	public void testSmallerValuesSubtracted_I() throws Exception {
+
+		// Subtract
+		assertEquals(4.0, ConvertCurrencyUtil.getInstance().convertCredit("IV"));
+		assertEquals(9.0, ConvertCurrencyUtil.getInstance().convertCredit("IX"));
+
+		// ADD
+		assertEquals(6.0, ConvertCurrencyUtil.getInstance().convertCredit("VI"));
+		assertEquals(11.0, ConvertCurrencyUtil.getInstance().convertCredit("XI"));
+
+	}
+
+	public void testSmallerValuesSubtracted_X() throws Exception {
+
+		assertEquals(40.0, ConvertCurrencyUtil.getInstance().convertCredit("XL"));
+		assertEquals(90.0, ConvertCurrencyUtil.getInstance().convertCredit("XC"));
+
+		assertEquals(60.0, ConvertCurrencyUtil.getInstance().convertCredit("LX"));
+		assertEquals(110.0, ConvertCurrencyUtil.getInstance().convertCredit("CX"));
+
+	}
+
+	public void testSmallerValuesSubtracted_C() throws Exception {
+
+		assertEquals(400.0, ConvertCurrencyUtil.getInstance().convertCredit("CD"));
+		assertEquals(900.0, ConvertCurrencyUtil.getInstance().convertCredit("CM"));
+
+		assertEquals(600.0, ConvertCurrencyUtil.getInstance().convertCredit("DC"));
+		assertEquals(1100.0, ConvertCurrencyUtil.getInstance().convertCredit("MC"));
+
+	}
 
 }

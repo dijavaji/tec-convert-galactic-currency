@@ -113,7 +113,7 @@ public class ConvertGalacticCurrencyTest {
 			GalacticCurrencyLog.getLog().info("testConvertGalaxyMoneytoUnitNull.");
 			assertEquals( null , ConvertCurrencyUtil.getInstance().convertGalaxyMoneytoUnit(null));
 			} catch (Exception e) {
-			GalacticCurrencyLog.getLog().error("testConvertGalaxyMoneytoUnitNull." + e);
+			GalacticCurrencyLog.getLog().error("testConvertGalaxyMoneytoUnitNull. ", e);
 			assertTrue("testConvertGalaxyMoneytoUnitNull number is null.",Boolean.TRUE);
 		}
 	}

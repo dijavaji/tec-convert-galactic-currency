@@ -1,15 +1,15 @@
 package ec.com.technoloqie.galactic.currency.commons.log;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
 
 
 public class GalacticCurrencyLog {
-	static final Logger logger = Logger.getLogger(GalacticCurrencyLog.class);
+	private static final Logger logger = LogManager.getLogger(GalacticCurrencyLog.class);
 	private static final GalacticCurrencyLog INSTANCIA = new GalacticCurrencyLog();
 	
 	private GalacticCurrencyLog(){
-		BasicConfigurator.configure();
+		//BasicConfigurator.configure();
 	}
 	
 	public static void info(String parameter){
@@ -36,7 +36,7 @@ public class GalacticCurrencyLog {
 		return INSTANCIA;
 	}
 	public static void error(String string, Exception e) {
-		error(string + e.getMessage());
+		error(string + e);
 	}
 
 }

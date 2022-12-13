@@ -27,7 +27,7 @@ public class ConvertCurrencyTest {
 	public void testNumberEmpty(){
 		try {
 			GalacticCurrencyLog.getLog().info("testNumberEmpty.");
-			ConvertCurrencyUtil.getInstance().convertCredit("");
+			ConvertCurrencyUtil.getInstance().convertRomantoUnit("");
 		} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("Number is empty.");
 			assertTrue("Number is empty.",Boolean.TRUE);
@@ -39,13 +39,13 @@ public class ConvertCurrencyTest {
 		try {
 			//ConvertCurrencyUtil.getInstance().convertCredit("");
 			GalacticCurrencyLog.getLog().info("testConvertRomanNumbers.");
-			assertEquals( 1.0, ConvertCurrencyUtil.getInstance().convertCredit("I"),0);
-			assertEquals(5.0, ConvertCurrencyUtil.getInstance().convertCredit("V"),0);
-			assertEquals(10.0, ConvertCurrencyUtil.getInstance().convertCredit("X"),0);
-			assertEquals(50.0, ConvertCurrencyUtil.getInstance().convertCredit("L"),0);
-			assertEquals(100.0, ConvertCurrencyUtil.getInstance().convertCredit("C"),0);
-			assertEquals(500.0, ConvertCurrencyUtil.getInstance().convertCredit("D"),0);
-			assertEquals(1000.0, ConvertCurrencyUtil.getInstance().convertCredit("M"),0);
+			assertEquals( 1.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("I"),0);
+			assertEquals(5.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("V"),0);
+			assertEquals(10.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("X"),0);
+			assertEquals(50.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("L"),0);
+			assertEquals(100.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("C"),0);
+			assertEquals(500.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("D"),0);
+			assertEquals(1000.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("M"),0);
 
 			
 		} catch (Exception e) {
@@ -58,7 +58,7 @@ public class ConvertCurrencyTest {
 	public void testNumberNull(){
 		try {
 			GalacticCurrencyLog.getLog().info("testNumberNull.");
-			assertEquals(null , ConvertCurrencyUtil.getInstance().convertCredit(null));
+			assertEquals(null , ConvertCurrencyUtil.getInstance().convertRomantoUnit(null));
 		} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("testNumberNull.");
 			assertTrue("number is null.",Boolean.TRUE);
@@ -69,7 +69,7 @@ public class ConvertCurrencyTest {
 	public void testConvert(){
 		try {
 			GalacticCurrencyLog.getLog().info("testConvert.");
-			assertEquals( 39.0, ConvertCurrencyUtil.getInstance().convertCredit("XXXIX"),0.0);		
+			assertEquals( 39.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("XXXIX"),0.0);		
 			} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("testConvertRomanNumbers.");
 			fail("Error in testConvertRomanNumbers.");
@@ -81,7 +81,7 @@ public class ConvertCurrencyTest {
 		
 		try {
 			GalacticCurrencyLog.getLog().info("testValidSucession.");
-			assertEquals( 39.0, ConvertCurrencyUtil.getInstance().convertCredit("XXXXI"),0.0);		
+			assertEquals( 39.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("XXXXI"),0.0);		
 			} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("testValidSucession.",e);
 			assertTrue("Error in testValidSucession.",Boolean.TRUE);
@@ -93,7 +93,7 @@ public class ConvertCurrencyTest {
 		
 		try {
 			GalacticCurrencyLog.getLog().info("testValidSucession.");
-			ConvertCurrencyUtil.getInstance().convertCredit("DDI");		
+			ConvertCurrencyUtil.getInstance().convertRomantoUnit("DDI");		
 			} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("testValidSucession.",e);
 			assertTrue("Error in testValidSucession.",Boolean.TRUE);
@@ -104,34 +104,34 @@ public class ConvertCurrencyTest {
 	public void testSmallerValuesSubtracted_I() throws Exception {
 
 		// Subtract
-		assertEquals(4.0, ConvertCurrencyUtil.getInstance().convertCredit("IV"), 0.0);
-		assertEquals(9.0, ConvertCurrencyUtil.getInstance().convertCredit("IX"),0.0);
+		assertEquals(4.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("IV"), 0.0);
+		assertEquals(9.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("IX"),0.0);
 
 		// ADD
-		assertEquals(6.0, ConvertCurrencyUtil.getInstance().convertCredit("VI"),0.0);
-		assertEquals(11.0, ConvertCurrencyUtil.getInstance().convertCredit("XI"),0.0);
+		assertEquals(6.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("VI"),0.0);
+		assertEquals(11.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("XI"),0.0);
 
 	}
 	
 	@Test
 	public void testSmallerValuesSubtracted_X() throws Exception {
 
-		assertEquals(40.0, ConvertCurrencyUtil.getInstance().convertCredit("XL"),0.0);
-		assertEquals(90.0, ConvertCurrencyUtil.getInstance().convertCredit("XC"),0.0);
+		assertEquals(40.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("XL"),0.0);
+		assertEquals(90.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("XC"),0.0);
 
-		assertEquals(60.0, ConvertCurrencyUtil.getInstance().convertCredit("LX"),0.0);
-		assertEquals(110.0, ConvertCurrencyUtil.getInstance().convertCredit("CX"),0.0);
+		assertEquals(60.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("LX"),0.0);
+		assertEquals(110.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("CX"),0.0);
 
 	}
 	
 	@Test
 	public void testSmallerValuesSubtracted_C() throws Exception {
 
-		assertEquals(400.0, ConvertCurrencyUtil.getInstance().convertCredit("CD"),0.0);
-		assertEquals(900.0, ConvertCurrencyUtil.getInstance().convertCredit("CM"),0.0);
+		assertEquals(400.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("CD"),0.0);
+		assertEquals(900.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("CM"),0.0);
 
-		assertEquals(600.0, ConvertCurrencyUtil.getInstance().convertCredit("DC"),0.0);
-		assertEquals(1100.0, ConvertCurrencyUtil.getInstance().convertCredit("MC"),0.0);
+		assertEquals(600.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("DC"),0.0);
+		assertEquals(1100.0, ConvertCurrencyUtil.getInstance().convertRomantoUnit("MC"),0.0);
 
 	}
 

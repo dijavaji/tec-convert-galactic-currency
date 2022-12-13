@@ -18,6 +18,31 @@ public class ConvertGalacticCurrencyTest {
 		
 	}
 	
+	
+	@Test
+	@SuppressWarnings("static-access")
+	public void testInteractiveSolution(){
+		try{
+			GalacticCurrencyLog.getLog().info("Test input:");
+			GalacticCurrencyLog.getLog().info("glob is " + ConvertCurrencyUtil.getInstance().parseUnitRoman("glob"));
+			GalacticCurrencyLog.getLog().info("prok is " + ConvertCurrencyUtil.getInstance().parseUnitRoman("prok"));
+			GalacticCurrencyLog.getLog().info("pish is " + ConvertCurrencyUtil.getInstance().parseUnitRoman("pish"));
+			GalacticCurrencyLog.getLog().info("tegj is " + ConvertCurrencyUtil.getInstance().parseUnitRoman("tegj"));
+			GalacticCurrencyLog.getLog().info("glob glob Silver is " + ConvertCurrencyUtil.getInstance().convertGalaxyMoneytoCredits("glob glob silver") +" Credits");
+			GalacticCurrencyLog.getLog().info("glob prok Gold is " + ConvertCurrencyUtil.getInstance().convertGalaxyMoneytoCredits("glob prok Gold") +" Credits");
+			GalacticCurrencyLog.getLog().info("pish pish Iron is " + ConvertCurrencyUtil.getInstance().convertGalaxyMoneytoCredits("pish pish Iron") +" Credits");
+			GalacticCurrencyLog.getLog().info("how much is pish tegj glob glob ? is " + ConvertCurrencyUtil.getInstance().convertGalaxyMoneytoUnit("pish tegj glob glob") );
+			GalacticCurrencyLog.getLog().info("how many Credits is glob prok Silver ? is " + ConvertCurrencyUtil.getInstance().convertGalaxyMoneytoCredits("glob prok Silver") );
+			GalacticCurrencyLog.getLog().info("how many Credits is glob prok Gold ? is " + ConvertCurrencyUtil.getInstance().convertGalaxyMoneytoCredits("glob prok Gold") );
+			GalacticCurrencyLog.getLog().info("how much wood could a woodchuck chuck if a woodchuck could chuck wood ?");
+			GalacticCurrencyLog.getLog().info("" + ConvertCurrencyUtil.getInstance().convertGalaxyMoneytoCredits("wood could a woodchuck chuck")); 
+			
+		}catch(Exception e){
+			GalacticCurrencyLog.getLog().error("I have no idea what you are talking about.");
+			assertTrue("Error in testInteractiveSolution.",Boolean.TRUE);
+		}
+	}
+	
 	@Test
 	public void testParseUnitRoman(){
 		try {

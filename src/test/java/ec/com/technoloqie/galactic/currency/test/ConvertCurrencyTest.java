@@ -68,7 +68,7 @@ public class ConvertCurrencyTest {
 	@Test
 	public void testConvert(){
 		try {
-			GalacticCurrencyLog.getLog().error("testConvert.");
+			GalacticCurrencyLog.getLog().info("testConvert.");
 			assertEquals( 39.0, ConvertCurrencyUtil.getInstance().convertCredit("XXXIX"),0.0);		
 			} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("testConvertRomanNumbers.");
@@ -80,7 +80,7 @@ public class ConvertCurrencyTest {
 	public void testValidSucession() throws Exception {
 		
 		try {
-			GalacticCurrencyLog.getLog().error("testValidSucession.");
+			GalacticCurrencyLog.getLog().info("testValidSucession.");
 			assertEquals( 39.0, ConvertCurrencyUtil.getInstance().convertCredit("XXXXI"),0.0);		
 			} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("testValidSucession.",e);
@@ -92,7 +92,7 @@ public class ConvertCurrencyTest {
 	public void testValidSucession_D() throws Exception {
 		
 		try {
-			GalacticCurrencyLog.getLog().error("testValidSucession.");
+			GalacticCurrencyLog.getLog().info("testValidSucession.");
 			ConvertCurrencyUtil.getInstance().convertCredit("DDI");		
 			} catch (Exception e) {
 			GalacticCurrencyLog.getLog().error("testValidSucession.",e);

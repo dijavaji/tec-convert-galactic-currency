@@ -16,6 +16,7 @@ public interface CurrencyConstants {
 	static final String METAL_IRON = "iron";
 	static final String METAL_SILVER = "silver";
 	static final String METAL_GOLD = "gold";
+	static final String GALACTIC_CURRENCY = "credits";
 	
 	// Exchnage rate
 	static final double IRON_PER_UNIT = 195.5;

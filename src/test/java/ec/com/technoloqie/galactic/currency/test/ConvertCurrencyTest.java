@@ -6,6 +6,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.BlockJUnit4ClassRunner;
 
 import ec.com.technoloqie.galactic.currency.commons.exception.GalacticCurrencyException;
 import ec.com.technoloqie.galactic.currency.commons.log.GalacticCurrencyLog;
@@ -16,6 +18,7 @@ import ec.com.technoloqie.galactic.currency.commons.utils.ConvertCurrencyUtil;
  * @author dvasquez
  *
  */
+@RunWith(BlockJUnit4ClassRunner.class)
 public class ConvertCurrencyTest {
 	
 	@Before

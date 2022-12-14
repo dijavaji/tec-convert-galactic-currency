@@ -6,18 +6,24 @@ import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.BlockJUnit4ClassRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import ec.com.technoloqie.galactic.currency.commons.CurrencyConstants;
 import ec.com.technoloqie.galactic.currency.commons.exception.GalacticCurrencyException;
 import ec.com.technoloqie.galactic.currency.commons.log.GalacticCurrencyLog;
 import ec.com.technoloqie.galactic.currency.commons.utils.ConvertCurrencyUtil;
+import ec.com.technoloqie.galactic.currency.model.Currency;
+import ec.com.technoloqie.galactic.currency.service.CurrencyService;
 
+@RunWith(BlockJUnit4ClassRunner.class)
 public class ConvertGalacticCurrencyTest {
 	
 	@Before
 	public void setUp() throws GalacticCurrencyException{
 		
 	}
-	
 	
 	@Test
 	@SuppressWarnings("static-access")
